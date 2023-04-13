@@ -28,7 +28,7 @@ const ServiceDetail = ({ service }) => {
         <p className="text-center font-bold mb-5">price: ${price} CAD</p>
         <Link
           href="/appointment"
-          className="bg-rose-400 hover:bg-rose-300 text-white text-center font-bold py-2 px-4 rounded w-1/2 mx-auto my-5"
+          className="bg-rose-400 hover:bg-rose-300 text-white text-center font-bold py-2 px-4 rounded-full w-1/3 mx-auto my-5"
         >
           Book Appointment
         </Link>

@@ -24,6 +24,19 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'homeImage',
+      title: 'Image for Home page',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    }),
+    defineField({
+      name: 'shortDesc',
+      title: 'Short description for homepage',
+      type: 'string',
+    }),
+    defineField({
       name: 'location',
       title: 'Location',
       type: 'string',

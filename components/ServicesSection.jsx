@@ -3,12 +3,11 @@ import React from "react";
 import ServiceComponent from "./ServiceComponent";
 import { client } from "@/lib/client";
 
-
-const ServicesSection = ({services}) => {
+const ServicesSection = ({ services }) => {
   return (
     <div id="services-section" className="container mx-auto p-3">
       <h1 className="text-3xl font-bold my-5 text-center">
-        Ready to make parenting easier?
+        Parenthood Is Challenging Enough. <br /> I am Here To Make It Easier.
       </h1>
       <p className="my-5 text-center">
         Take a look at the services we provide. We are committed to being a one
@@ -17,12 +16,7 @@ const ServicesSection = ({services}) => {
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 py-3">
         {services?.map((item) => {
-          return (
-            <ServiceComponent
-              key={item._id}
-              service={item}
-            />
-          );
+          return <ServiceComponent key={item._id} service={item} />;
         })}
       </div>
     </div>

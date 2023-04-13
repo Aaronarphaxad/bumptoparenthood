@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  font-family: "Nunito", Helvetica, sans-serif;
+}
+
 .hero {
   background-image: url("../public//banner.webp");
   background-size: cover;
@@ -19,7 +23,12 @@
   height: 250px !important;
 }
 
-.review-card{
+.desc-img {
+  height: 400px;
+  width: 400px;
+}
+
+.review-card {
   height: 270px;
 }
 
@@ -54,5 +63,9 @@
   }
   .logo img {
     height: 70px;
+  }
+
+  .review-card {
+    height: max-content;
   }
 }
