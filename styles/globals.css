@@ -2,26 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.hero {
+  background-image: url("../public//banner.webp");
+  background-size: cover;
+  background-position: center;
+  /* opacity: 0.6; */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.review-section {
+  background-image: url("../public//happybaby.webp");
+  background-size: cover;
+  background-position: center;
+}
+
+.card-img {
+  height: 250px !important;
+}
+
+.review-card{
+  height: 270px;
+}
+
+.detailed-img {
+  height: 400px !important;
+  width: 400px !important;
+}
+
+.break-lines {
+  white-space: pre-wrap;
+}
+
+::-webkit-scrollbar {
+  width: 1px;
+}
+
+.logo {
+  position: absolute;
+  border-radius: 1rem;
+  top: 0;
+  padding: 10px;
+}
+
+.logo img {
+  height: 120px;
+}
+
+@media screen and (max-width: 600px) {
+  .logo {
+    display: block;
+    margin-top: 10px;
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  .logo img {
+    height: 70px;
+  }
 }
