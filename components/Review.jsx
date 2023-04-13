@@ -21,7 +21,7 @@ function Review({ name, stars, review, date }) {
 
         <span className="text-gray-600 text-sm">{date}</span>
       </div>
-      <p className="text-gray-800 text-base text-sm">{review}</p>
+      <p className="text-gray-800 text-base text-center text-sm">{review}</p>
     </div>
   );
 }
