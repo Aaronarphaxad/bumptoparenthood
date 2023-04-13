@@ -27,9 +27,9 @@ const about = ({ about }) => {
           height={450}
         />
       </div>
-      <p class="pt-4 text-base font-bold flex items-center justify-center lg:justify-start text-center mx-auto">
+      <p className="pt-4 text-base font-bold flex items-center justify-center lg:justify-start text-center mx-auto">
         <svg
-          class="h-4 fill-current text-rose-300 pr-4"
+          className="h-4 fill-current text-rose-300 pr-4"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
         >
@@ -37,9 +37,9 @@ const about = ({ about }) => {
         </svg>{" "}
         {occupation}
       </p>
-      <p class="pt-2 py-2 text-gray-500 text-xs lg:text-sm flex items-center justify-center lg:justify-start text-center">
+      <p className="pt-2 py-2 text-gray-500 text-xs lg:text-sm flex items-center justify-center lg:justify-start text-center">
         <svg
-          class="h-4 fill-current text-rose-300 pr-4"
+          className="h-4 fill-current text-rose-300 pr-4"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
         >

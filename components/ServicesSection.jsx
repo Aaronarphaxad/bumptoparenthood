@@ -6,7 +6,7 @@ import { client } from "@/lib/client";
 
 const ServicesSection = ({services}) => {
   return (
-    <div id="services-section" class="container mx-auto p-3">
+    <div id="services-section" className="container mx-auto p-3">
       <h1 className="text-3xl font-bold my-5 text-center">
         Ready to make parenting easier?
       </h1>
@@ -15,7 +15,7 @@ const ServicesSection = ({services}) => {
         stop shop for all families, from pregnancy through the school age years.
         With every new milestone that brings a challenge, we are here to help.
       </p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 py-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 py-3">
         {services?.map((item) => {
           return (
             <ServiceComponent

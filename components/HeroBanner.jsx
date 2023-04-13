@@ -5,8 +5,8 @@ const HeroBanner = () => {
   return (
     <div className="w-screen h-screen text-white hero pt-5">
       
-      <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
-        <div class="text-center lg:w-5/12 w-full mt-5">
+      <div className="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
+        <div className="text-center lg:w-5/12 w-full mt-5">
           <h1 className="my-4 text-5xl font-bold leading-tight">
           The Ultimate Solution for new Parents
           </h1>

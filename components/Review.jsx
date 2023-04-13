@@ -7,7 +7,7 @@ function Review({ name, stars, review, date }) {
 
   for (let i = 0; i < stars; i++) {
     ratings.push(
-      <StarIcon width={15} height={15} className="text-yellow-500" />
+      <StarIcon key={i} width={15} height={15} className="text-yellow-500" />
     );
   }
   return (
@@ -15,7 +15,7 @@ function Review({ name, stars, review, date }) {
       <div className="flex flex-col items-center mb-4">
         <h3 className="text-lg font-semibold">{name}</h3>
         <div className="flex ">
-          {/* <StarIcon width={15} height={15} className='text-yellow-500' /> */}
+          
           {ratings}
         </div>
 
