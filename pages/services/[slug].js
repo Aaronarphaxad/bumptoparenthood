@@ -9,8 +9,8 @@ const ServiceDetail = ({ service }) => {
     <div className="mt-20 lg:p-10 sm:p-5  align-center bg-rose-100 dark:bg-gray-800 pt-5">
         <Head>
         <title>{title}</title>
-        <meta name="description" content="About Raven, owner of Bump to Parenthood, Registered nurse" />
-        <meta name="keywords" content="about, page, mama coach," />
+        <meta name="description" content={title} />
+        <meta name="keywords" content="support, nurse" />
         <link rel="canonical" href={`https://www.bumptoparenthood.com/${slug.current}`} />
         <meta name="robots" content="index, follow" />
       </Head>

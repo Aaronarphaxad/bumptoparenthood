@@ -13,7 +13,7 @@ const about = ({ about }) => {
           name="description"
           content="About Raven, owner of Bump to Parenthood, Registered nurse"
         />
-        <meta name="keywords" content="about, page, mama coach," />
+        <meta name="keywords" content="about, page, mamacoach," />
         <link rel="canonical" href="https://www.bumptoparenthood.com/about" />
         <meta name="robots" content="index, follow" />
       </Head>
