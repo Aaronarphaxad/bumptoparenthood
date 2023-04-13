@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Footer = () => {
@@ -10,15 +11,15 @@ const Footer = () => {
         </span>
         <ul className="self-center py-6 space-y-4 text-center sm:flex sm:space-y-0 sm:justify-around sm:space-x-4 lg:flex-1 lg:justify-start mx-4">
           <li className="cursor-pointer">Services</li>
-          <a href="/blog" className="hover:underline">
+          <Link href="/blog" className="hover:underline">
             <li className="cursor-pointer">Blog</li>
-          </a>
-          <a href="/about" className="hover:underline">
+          </Link>
+          <Link href="/about" className="hover:underline">
             <li className="cursor-pointer">About</li>
-          </a>
-          <a href="/appointment" className="hover:underline">
+          </Link>
+          <Link href="/appointment" className="hover:underline">
             <li className="cursor-pointer">Contact</li>
-          </a>
+          </Link>
         </ul>
         <div className="flex flex-col justify-center pt-6 lg:pt-0">
           <div className="flex justify-center space-x-4">

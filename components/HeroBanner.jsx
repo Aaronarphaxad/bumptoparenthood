@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const HeroBanner = () => {
@@ -14,9 +15,9 @@ const HeroBanner = () => {
             Specializing in Labor and Delivery and Motherhood Support Services
           </p>
           <div className="flex justify-center mx-auto ">
-            <a href="/appointment" className="hover:underline bg-white hover:bg-rose-300 hover:text-white text-gray-800 font-bold rounded-full  py-4 px-8">
+            <Link href="/appointment" className="hover:underline bg-white hover:bg-rose-300 hover:text-white text-gray-800 font-bold rounded-full  py-4 px-8">
               Book an Appointment
-            </a>
+            </Link>
             
           </div>
           

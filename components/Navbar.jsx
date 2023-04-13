@@ -144,7 +144,7 @@ export default function Navbar() {
             </Transition>
           </Popover>
 
-          <a
+          <Link
             href="/blog"
             className={`${
               router.pathname === "/blog" &&
@@ -152,8 +152,8 @@ export default function Navbar() {
             } text-sm font-semibold leading-6 hover:underline`}
           >
             Blog
-          </a>
-          <a
+          </Link>
+          <Link
             href="/about"
             className={`${
               router.pathname === "/about" &&
@@ -161,7 +161,7 @@ export default function Navbar() {
             } text-sm font-semibold leading-6 hover:underline`}
           >
             About Me
-          </a>
+          </Link>
           {/* <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
             Company
           </a> */}
@@ -233,26 +233,26 @@ export default function Navbar() {
                     </>
                   )}
                 </Disclosure>
-                <a
+                <Link
                   href="/blog"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 dark:text-gray-200 hover:bg-gray-50"
                 >
                   Blog
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/about"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 dark:text-gray-200 hover:bg-gray-50"
                 >
                   About Me
-                </a>
+                </Link>
               </div>
               <div className="py-6">
-                <a
+                <Link
                   href="/appointment"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 dark:text-gray-200 hover:bg-gray-50"
                 >
                   Book an appointment
-                </a>
+                </Link>
               </div>
             </div>
           </div>
