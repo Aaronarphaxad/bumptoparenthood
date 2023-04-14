@@ -1,19 +1,25 @@
 import Layout from "@/components/Layout";
 import "@/styles/globals.css";
-import Head from "next/head";
 
 export default function App({ Component, pageProps }) {
   return (
-    <Layout>
-      <Head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Nunito&family=Pacifico&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
+    <Layout services={pageProps.services}>
       <Component {...pageProps} />
     </Layout>
   );
 }
+
+export const getInitialProps = async () => {
+  const query = `*[_type == "service"]`;
+  try {
+    const services = await client.fetch(query);
+    return {
+      props: { services },
+    };
+  } catch (error) {
+    console.error("Error fetching services:", error);
+    return {
+      props: { services: [] }, // set a default value for services
+    };
+  }
+};

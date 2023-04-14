@@ -5,10 +5,10 @@ import Link from "next/link";
 import React from "react";
 
 const ServiceDetail = ({ service }) => {
-  const { title, image, price, detailedText,slug } = service;
+  const { title, image, price, detailedText, slug } = service;
   return (
     <div className="mt-20 lg:p-10 sm:p-5  align-center bg-rose-100 dark:bg-gray-800 pt-5">
-        {/* <Head>
+      {/* <Head>
         <title>{title}</title>
         <meta name="description" content={title} />
         <meta name="keywords" content="support, nurse" />

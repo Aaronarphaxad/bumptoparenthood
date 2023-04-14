@@ -1,13 +1,9 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";
 import {
-  ArrowPathIcon,
   Bars3Icon,
-  ChartPieIcon,
-  CursorArrowRaysIcon,
-  FingerPrintIcon,
-  SquaresPlusIcon,
   XMarkIcon,
+  ArrowRightIcon,
 } from "@heroicons/react/24/outline";
 import {
   ChevronDownIcon,
@@ -18,32 +14,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Logo from "./Logo";
 
-const services = [
-  {
-    name: "Pre-natal classes",
-    description: "Get a better understanding of your pregnancy",
-    href: "/services/prenatal-classes",
-    icon: ChartPieIcon,
-  },
-  {
-    name: "Breast Feeding support",
-    description: "Proper latching techniques",
-    href: "/services/breast-feeding-support",
-    icon: CursorArrowRaysIcon,
-  },
-  {
-    name: "Feeding",
-    description: "Feeding techniques and feeding cues",
-    href: "/services/feeding-and-diet",
-    icon: FingerPrintIcon,
-  },
-  {
-    name: "CPR",
-    description: "Learn life saving techniques for emergencies",
-    href: "/services/cpr-classes",
-    icon: ArrowPathIcon,
-  },
-];
 const callsToAction = [
   { name: "Watch demo", href: "/appointment", icon: PlayCircleIcon },
   { name: "Contact me", href: "/appointment", icon: PhoneIcon },
@@ -53,9 +23,24 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Navbar() {
+export default function Navbar({ services }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [servicesToMap, setServicesToMap] = useState([]);
   const router = useRouter();
+
+  console.log(servicesToMap);
+
+  useEffect(() => {
+    if (services) {
+      setServicesToMap(() => {
+        return services?.map((item) => ({
+          name: item?.title,
+          href: item?.slug.current,
+          description: item?.text,
+        }));
+      });
+    }
+  }, [services]);
 
   return (
     <header className="bg-white shadow dark:bg-gray-800 dark:text-rose-300 dark:border-gray-700 fixed top-0 w-full">
@@ -104,23 +89,25 @@ export default function Navbar() {
             >
               <Popover.Panel className="absolute -left-8 top-full  z-100 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5 bg-white dark:bg-gray-700 dark:text-gray-400">
                 <div className="p-4">
-                  {services.map((item) => (
+                  {servicesToMap?.map((item) => (
                     <div
                       key={item.name}
                       className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
                     >
                       <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                        <item.icon
-                          className="h-6 w-6 text-gray-600 group-hover:text-rose-600"
-                          aria-hidden="true"
-                        />
+                        <ArrowRightIcon height={15} />
                       </div>
                       <div className="flex-auto">
-                        <a href={item.href} className="block font-semibold">
+                        <a
+                          href={`services/${item.href}`}
+                          className="block font-semibold"
+                        >
                           {item.name}
                           <span className="absolute inset-0" />
                         </a>
-                        <p className="mt-1 text-gray-400">{item.description}</p>
+                        <p className="mt-1 text-gray-400 text-xs">
+                          {item.description}
+                        </p>
                       </div>
                     </div>
                   ))}
@@ -219,11 +206,11 @@ export default function Navbar() {
                         />
                       </Disclosure.Button>
                       <Disclosure.Panel className="mt-2 space-y-2 dark:text-gray-200">
-                        {[...services, ...callsToAction].map((item) => (
+                        {[...servicesToMap, ...callsToAction].map((item) => (
                           <Disclosure.Button
                             key={item.name}
                             as="a"
-                            href={item.href}
+                            href={`services/${item.href}`}
                             className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 dark:text-gray-200 hover:bg-gray-50"
                           >
                             {item.name}

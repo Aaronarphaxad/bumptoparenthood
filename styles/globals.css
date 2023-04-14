@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: "Nunito", Helvetica, sans-serif;
-}
-
 .hero {
   background-image: url("../public//banner.webp");
   background-size: cover;
@@ -33,8 +29,8 @@ body {
 }
 
 .detailed-img {
-  height: 400px !important;
-  width: 400px !important;
+  height: 300px !important;
+  width: 300px !important;
 }
 
 .break-lines {
@@ -69,7 +65,7 @@ body {
     height: max-content;
   }
 
-  .detailed-img{
+  .detailed-img {
     height: 250px !important;
     width: auto !important;
   }
