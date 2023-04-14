@@ -22,13 +22,13 @@ const ServiceDetail = ({ service }) => {
           className="rounded my-3 mx-auto mt-5 detailed-img"
         />
         <h1 className="text-center font-bold text-2xl my-2">{title}</h1>
-        <p className="text-center mb-5 whitespace-normal break-words">
+        <p className="text-center px-5 mb-5 whitespace-normal break-words">
           {detailedText}
         </p>
         <p className="text-center font-bold mb-5">price: ${price} CAD</p>
         <Link
           href="/appointment"
-          className="bg-rose-400 hover:bg-rose-300 text-white text-center font-bold py-2 px-4 rounded-full w-1/3 mx-auto my-5"
+          className="bg-rose-300 hover:bg-rose-200 text-white text-center font-bold py-2 px-4 rounded-full w-1/2 mx-auto my-5"
         >
           Book Appointment
         </Link>
