@@ -1,5 +1,3 @@
-import author from "@/bump-to-parenthood/schemas/author";
-import category from "@/bump-to-parenthood/schemas/category";
 import { client, urlFor } from "@/lib/client";
 import React from "react";
 
