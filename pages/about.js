@@ -4,9 +4,9 @@ import React from "react";
 
 const about = ({ about }) => {
   const { image, name, occupation, location, description } = about[0];
-  console.log(about[0]);
+  
   return (
-    <div className="container mx-auto py-10 pt-40">
+    <div className="container mx-auto py-10 pt-20">
       <Head>
         <title>About Raven</title>
         <meta

@@ -7,14 +7,14 @@ import React from "react";
 const ServiceDetail = ({ service }) => {
   const { title, image, price, detailedText, slug } = service;
   return (
-    <div className="mt-20 lg:p-10 sm:p-5  align-center bg-rose-100 dark:bg-gray-800 pt-5">
-      {/* <Head>
+    <div className="pt-10 lg:p-10 sm:p-5  align-center bg-rose-100 dark:bg-gray-800 pt-5">
+      <Head>
         <title>{title}</title>
         <meta name="description" content={title} />
         <meta name="keywords" content="support, nurse" />
         <link rel="canonical" href={`https://www.bumptoparenthood.com/${slug.current}`} />
         <meta name="robots" content="index, follow" />
-      </Head> */}
+      </Head>
       <div className="lg:w-50 md:w-50 sm:w-100 flex flex-col place-content-center bg-white p-5 sm:p-2 rounded sm: lg:m-5 dark:text-gray-800">
         <img
           src={urlFor(image)}

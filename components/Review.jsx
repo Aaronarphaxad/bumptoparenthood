@@ -13,7 +13,7 @@ function Review({ name, stars, review, date }) {
   return (
     <div className="bg-white rounded-lg shadow-md p-6 mb-8 bg-transparent review-card">
       <div className="flex flex-col items-center mb-4">
-        <h3 className="text-lg font-semibold">{name}</h3>
+        <h3 className="text-lg font-semibold dark:text-gray-800">{name}</h3>
         <div className="flex ">
           
           {ratings}

@@ -28,7 +28,6 @@ export default function Navbar({ services }) {
   const [servicesToMap, setServicesToMap] = useState([]);
   const router = useRouter();
 
-  console.log(servicesToMap);
 
   useEffect(() => {
     if (services) {
@@ -43,7 +42,7 @@ export default function Navbar({ services }) {
   }, [services]);
 
   return (
-    <header className="bg-white shadow dark:bg-gray-800 dark:text-rose-300 dark:border-gray-700 fixed top-0 w-full">
+    <header className="bg-gray-100 shadow dark:bg-gray-800 dark:text-rose-300 dark:border-gray-700 w-full">
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
         aria-label="Global"

@@ -26,7 +26,7 @@ const Footer = () => {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://instagram.com"
+              href="https://www.instagram.com/bumptoparenthood/"
               title="Instagram"
               className="flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 dark:bg-rose-300 dark:text-gray-900"
             >
