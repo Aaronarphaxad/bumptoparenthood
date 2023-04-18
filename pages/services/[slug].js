@@ -12,7 +12,10 @@ const ServiceDetail = ({ service }) => {
         <title>{title}</title>
         <meta name="description" content={title} />
         <meta name="keywords" content="support, nurse" />
-        <link rel="canonical" href={`https://www.bumptoparenthood.com/${slug.current}`} />
+        <link
+          rel="canonical"
+          href={`https://www.bumptoparenthood.com/${slug.current}`}
+        />
         <meta name="robots" content="index, follow" />
       </Head>
       <div className="lg:w-50 md:w-50 sm:w-100 flex flex-col place-content-center bg-white p-5 sm:p-2 rounded sm: lg:m-5 dark:text-gray-800">
@@ -25,7 +28,9 @@ const ServiceDetail = ({ service }) => {
         <p className="text-center px-5 mb-5 whitespace-normal break-words">
           {detailedText}
         </p>
-        <p className="text-center font-bold mb-5">price: ${price} CAD</p>
+        <p className="text-center font-bold mb-5">
+          Price: ${price < 100 ? `${price}/hr` : price} CAD
+        </p>
         <Link
           href="/appointment"
           className="bg-rose-300 hover:bg-rose-200 text-white text-center font-bold py-2 px-4 rounded-full w-1/2 mx-auto my-5"

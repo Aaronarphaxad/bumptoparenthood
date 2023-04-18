@@ -11,8 +11,6 @@ function LearnMore({ about }) {
           className="rounded-lg desc-img"
           src={urlFor(homeImage)}
           alt="raven"
-          height={400}
-          width={500}
         />
       </div>
       <div className=" flex flex-col w-full h-2/3  md:w-1/2 justify-between gap-2 p-5">
