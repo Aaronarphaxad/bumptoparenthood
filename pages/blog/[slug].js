@@ -14,9 +14,9 @@ const BlogDetail = ({ post }) => {
         }}
         title="Woman holding a mug"
       ></div>
-      <div className="max-w-2xl mx-auto">
+      <div className="max-w-2xl mx-auto dark:bg-gray-800">
         <div className="mt-3 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
-          <div className="">
+          <div className="dark:text-gray-300 p-5 dark:bg-gray-800">
             <a
               href="#"
               className="text-xs text-indigo-600 uppercase font-medium hover:text-gray-900 transition duration-500 ease-in-out"
@@ -24,10 +24,10 @@ const BlogDetail = ({ post }) => {
               {category[0]}
             </a>
 
-            <h1 href="#" className="text-gray-900 font-bold text-3xl mb-2">
+            <h1 href="#" className="text-gray-900 dark:text-gray-300 font-bold text-3xl mb-2">
               {title}
             </h1>
-            <p className="text-gray-700 text-xs mt-2">
+            <p className="text-gray-700  text-xs mt-2">
               Written By:{" "}
               <a
                 href="#"

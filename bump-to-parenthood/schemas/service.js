@@ -42,5 +42,10 @@ export default defineType({
             title: 'Price',
             type: 'number',
           }),
+          defineField({
+            name: 'pricePerHour',
+            title: 'Price Per Hour?',
+            type: 'boolean',
+          }),
     ]
 })
