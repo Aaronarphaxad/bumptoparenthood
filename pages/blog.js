@@ -1,10 +1,32 @@
 import BlogComponent from "@/components/BlogComponent";
 import { client } from "@/lib/client";
+import Head from "next/head";
 import React from "react";
 
 const BlogPage = ({ posts }) => {
   return (
     <div className="w-screen py-10 ">
+           <Head>
+        <title>Bump to Parenthood | Blog</title>
+        <meta
+        property="og:description"
+          name="description"
+          content="Bump to Parenthood Blog to help inform keep you informed. Watch out for new blog posts
+"
+        />
+        {/* <meta
+          property="og:image"
+          content=""
+          key="ogimage"
+        /> */}
+        <meta
+          name="keywords"
+          content="newborn care, support, specialist, lactation, breatfeeding, cpr,"
+        />
+        <link rel="canonical" href="https://www.bumptoparenthood.com/blog" />
+        <meta name="robots" content="index, follow" />
+        
+      </Head>
       <h1 className="font-bold text-2xl text-center pb-10">Blog</h1>
 
       {posts?.map((item) => {
