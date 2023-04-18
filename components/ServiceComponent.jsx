@@ -5,6 +5,7 @@ import React from "react";
 
 const ServiceComponent = ({ service }) => {
   const { slug, image, title, text, price, pricePerHour } = service;
+  
 
   return (
     <Link href={`/services/${slug.current}`}>

@@ -7,7 +7,7 @@ const Layout = ({ children, services }) => {
   return (
     <div className="layout font-sans">
       <Head>
-        <title>Bump to parenthood</title>
+        <title>Bump to Parenthood</title>
       </Head>
       <header>
         <Navbar services={services} />

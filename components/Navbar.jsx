@@ -15,7 +15,11 @@ import { useRouter } from "next/router";
 import Logo from "./Logo";
 
 const callsToAction = [
-  { name: "Watch demo", href: "/appointment", icon: PlayCircleIcon },
+  {
+    name: "Check Instagram",
+    href: "https://instagram.com/bumptoparenthood",
+    icon: PlayCircleIcon,
+  },
   { name: "Contact me", href: "/appointment", icon: PhoneIcon },
 ];
 
@@ -25,9 +29,10 @@ function classNames(...classes) {
 
 export default function Navbar({ services }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [servicesToMap, setServicesToMap] = useState([]);
+  const [servicesToMap, setServicesToMap] = useState(services);
   const router = useRouter();
 
+  // console.log("NAVBAR SERVICES: ", services);
 
   useEffect(() => {
     if (services) {
@@ -98,14 +103,14 @@ export default function Navbar({ services }) {
                       </div>
                       <div className="flex-auto">
                         <a
-                          href={`services/${item.href}`}
+                          href={`/services/${item?.href}`}
                           className="block font-semibold"
                         >
-                          {item.name}
+                          {item?.name}
                           <span className="absolute inset-0" />
                         </a>
                         <p className="mt-1 text-gray-400 text-xs">
-                          {item.description}
+                          {item?.description}
                         </p>
                       </div>
                     </div>

@@ -9,7 +9,7 @@ export default function App({ Component, pageProps }) {
   );
 }
 
-export const getInitialProps = async () => {
+export const getServerSideProps = async () => {
   const query = `*[_type == "service"]`;
   try {
     const services = await client.fetch(query);

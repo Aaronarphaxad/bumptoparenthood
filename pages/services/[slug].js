@@ -25,7 +25,7 @@ const ServiceDetail = ({ service }) => {
           className="rounded my-3 mx-auto mt-5 detailed-img"
         />
         <h1 className="text-center font-bold text-2xl my-2">{title}</h1>
-        <p className="text-center px-5 mb-5 whitespace-normal break-words">
+        <p className="text-center px-5 mb-5 whitespace-normal break-words text-justify">
           {detailedText}
         </p>
         <p className="text-center font-bold mb-5">
