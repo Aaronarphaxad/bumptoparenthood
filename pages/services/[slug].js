@@ -5,7 +5,7 @@ import Link from "next/link";
 import React from "react";
 
 const ServiceDetail = ({ service }) => {
-  const { title, image, price, detailedText, slug } = service;
+  const { title, image, price, detailedText, slug, pricePerHour } = service;
   return (
     <div className="pt-10 lg:p-10 sm:p-5  align-center bg-rose-100 dark:bg-gray-800 pt-5">
       <Head>
@@ -29,7 +29,7 @@ const ServiceDetail = ({ service }) => {
           {detailedText}
         </p>
         <p className="text-center font-bold mb-5">
-          Price: ${price < 100 ? `${price}/hr` : price} CAD
+          Price: ${pricePerHour ? `${price}/hr` : price} CAD
         </p>
         <Link
           href="/appointment"

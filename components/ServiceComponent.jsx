@@ -4,7 +4,7 @@ import Link from "next/link";
 import React from "react";
 
 const ServiceComponent = ({ service }) => {
-  const { slug, image, title, text, price } = service;
+  const { slug, image, title, text, price, pricePerHour } = service;
 
   return (
     <Link href={`/services/${slug.current}`}>
@@ -16,11 +16,13 @@ const ServiceComponent = ({ service }) => {
         />
         <div className="px-6 py-4">
           <div className="font-bold text-xl mb-2">{title}</div>
-          <p className="text-gray-700 dark:text-gray-100 text-base text-sm">{text}</p>
+          <p className="text-gray-700 dark:text-gray-100 text-base text-sm">
+            {text}
+          </p>
         </div>
         <div className="px-6 pt-4 pb-2">
           <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-            ${price < 100 ? `${price}/hr` : price} CAD
+            ${pricePerHour ? `${price}/hr` : price} CAD
           </span>
         </div>
       </div>
