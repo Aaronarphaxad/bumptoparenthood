@@ -9,10 +9,10 @@ const Appointment = () => {
         {/* Contact Section */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-rose-600 to-pink-600 bg-clip-text text-transparent">
-            Let's Connect
+            Let&apos;s Connect
           </h1>
           <p className="text-lg text-gray-600 mb-8">
-            Choose how you'd like to reach out - I'm here to help
+            Choose how you&apos;d like to reach out - I&apos;m here to help
           </p>
         </div>
 
