@@ -9,13 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
     "@headlessui/react": "^1.7.13",
     "@heroicons/react": "^2.0.17",
-    "@material-ui/core": "^4.12.4",
+    "@mui/icons-material": "^7.1.0",
+    "@mui/material": "^7.1.0",
+    "@radix-ui/react-slot": "^1.2.2",
     "@sanity/client": "^5.4.2",
     "@sanity/image-url": "^1.0.2",
+    "@shadcn/ui": "^0.0.4",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "eslint": "8.38.0",
     "eslint-config-next": "13.3.0",
+    "lucide-react": "^0.510.0",
     "next": "13.3.0",
     "next-sanity": "^4.1.6",
     "next-sanity-image": "^6.0.0",
@@ -25,7 +33,9 @@
     "react-slick": "^0.29.0",
     "sanity": "^3.8.3",
     "slick-carousel": "^1.8.1",
-    "styled-components": "^5.3.9"
+    "styled-components": "^5.3.9",
+    "tailwind-merge": "^3.3.0",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",

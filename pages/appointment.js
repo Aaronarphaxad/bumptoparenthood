@@ -1,37 +1,63 @@
 import React from "react";
-import {  InlineWidget } from "react-calendly";
+import { InlineWidget } from "react-calendly";
+import { Mail, Phone } from "lucide-react";
 
 const Appointment = () => {
   return (
-    <div className="p-5 pt-40">
-     
-      <div className="bg-rose-100 py-8 rounded w-50">
-        <div className="max-w-xl mx-auto text-center dark:text-gray-700">
-          <h1 className="text-3xl font-bold mb-4">Contact Me</h1>
-          <p className="text-lg mb-4">You can reach me by phone or email:</p>
-          <ul className="list-none">
-            <li className="mb-4">
-              <a
-                href="tel:+17788585741"
-                className="inline-block bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-rose-300 transition-colors duration-300"
-              >
+    <div className="min-h-screen bg-gradient-to-b from-rose-50 to-white pt-24 pb-16 px-4">
+      <div className="max-w-4xl mx-auto">
+        {/* Contact Section */}
+        <div className="text-center mb-16">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-rose-600 to-pink-600 bg-clip-text text-transparent">
+            Let's Connect
+          </h1>
+          <p className="text-lg text-gray-600 mb-8">
+            Choose how you'd like to reach out - I'm here to help
+          </p>
+        </div>
+
+        <div className="bg-white rounded-2xl shadow-md p-8 md:p-10 mb-16">
+          <div className="grid md:grid-cols-2 gap-6">
+            <a
+              href="tel:+17788585741"
+              className="group flex items-center justify-center gap-3 p-6 bg-rose-50 rounded-xl hover:bg-rose-100 transition-all duration-300"
+            >
+              <Phone className="w-6 h-6 text-rose-600" />
+              <span className="text-lg font-medium text-gray-800">
                 Call Me
-              </a>
-            </li>
-            <li className="mb-4">
-              <a
-                href="mailto:raven@bumptoparenthood.com"
-                className="inline-block bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-rose-300 transition-colors duration-300"
-              >
+              </span>
+            </a>
+
+            <a
+              href="mailto:raven@bumptoparenthood.com"
+              className="group flex items-center justify-center gap-3 p-6 bg-rose-50 rounded-xl hover:bg-rose-100 transition-all duration-300"
+            >
+              <Mail className="w-6 h-6 text-rose-600" />
+              <span className="text-lg font-medium text-gray-800">
                 Email Me
-              </a>
-            </li>
-          </ul>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <div className="text-center mb-12">
+          <span className="inline-block px-4 py-2 bg-rose-100 rounded-full text-rose-600 font-medium">
+            OR
+          </span>
+        </div>
+
+        {/* Calendly Section */}
+        <div className="text-center mb-10">
+          <h2 className="text-3xl font-bold mb-4">Book an Appointment</h2>
+          <p className="text-gray-600 mb-8">
+            Schedule a time that works best for you
+          </p>
+        </div>
+
+        <div className="bg-white rounded-2xl shadow-md p-4 md:p-6">
+          <InlineWidget url="https://calendly.com/raven-ojw" />
         </div>
       </div>
-      <p className="text-center text-2xl font-bold py-5">Or</p>
-      <h2 className="text-3xl font-bold text-center my-5">Book an appointment</h2>
-      <InlineWidget url="https://calendly.com/raven-ojw" />
     </div>
   );
 };
