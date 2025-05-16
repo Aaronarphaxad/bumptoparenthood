@@ -1,0 +1,499 @@
+"use client"
+
+import Image from "next/image"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { Heart, Calendar, Moon, Baby, Droplet, Clock, Star, ChevronRight, Menu, X } from "lucide-react"
+import { useState } from "react"
+
+export default function LandingPage() {
+  return (
+    <div className="flex min-h-screen flex-col">
+      <Navbar />
+      <main>
+        <HeroSection />
+        <ServicesSection />
+        <AboutSection />
+        <ReviewsSection />
+      </main>
+      <Footer />
+    </div>
+  )
+}
+
+function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const services = [
+    { title: "Prenatal Classes", href: "#prenatal-classes" },
+    { title: "Overnight Nurse", href: "#overnight-nurse" },
+    { title: "Feeding Assessment", href: "#feeding-assessment" },
+    { title: "Breastfeeding Support", href: "#breastfeeding-support" },
+    { title: "Antenatal Hand Expression", href: "#antenatal-hand-expression" },
+    { title: "Postpartum Support", href: "#postpartum-support" },
+  ]
+
+  return (
+    <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex h-16 items-center justify-between">
+        <div className="flex items-center gap-2">
+          <Heart className="h-6 w-6 text-rose-500" />
+          <span className="text-lg font-semibold">Maternal Care Specialist</span>
+        </div>
+
+        <nav className="hidden md:flex gap-6">
+          <Link href="#home" className="text-sm font-medium transition-colors hover:text-primary">
+            Home
+          </Link>
+
+          {/* Services Dropdown - Desktop */}
+          <div className="relative group">
+            <button className="text-sm font-medium transition-colors hover:text-primary flex items-center gap-1">
+              Services <ChevronRight className="h-4 w-4 transform group-hover:rotate-90 transition-transform" />
+            </button>
+            <div className="absolute left-0 mt-1 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <div className="py-1">
+                {services.map((service, index) => (
+                  <Link
+                    key={index}
+                    href={service.href}
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-rose-50 hover:text-rose-700"
+                  >
+                    {service.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <Link href="#about" className="text-sm font-medium transition-colors hover:text-primary">
+            About
+          </Link>
+          <Link href="#reviews" className="text-sm font-medium transition-colors hover:text-primary">
+            Reviews
+          </Link>
+          <Link href="#contact" className="text-sm font-medium transition-colors hover:text-primary">
+            Contact
+          </Link>
+        </nav>
+
+        <Button className="hidden md:inline-flex">Book Consultation</Button>
+
+        <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle menu">
+          {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="container md:hidden py-4 pb-6">
+          <nav className="flex flex-col space-y-4">
+            <Link
+              href="#home"
+              className="text-sm font-medium transition-colors hover:text-primary"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Home
+            </Link>
+
+            {/* Services Dropdown - Mobile */}
+            <div className="space-y-2">
+              <div className="text-sm font-medium">Services</div>
+              <div className="pl-4 space-y-2 border-l-2 border-rose-100">
+                {services.map((service, index) => (
+                  <Link
+                    key={index}
+                    href={service.href}
+                    className="block text-sm text-muted-foreground hover:text-rose-700"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {service.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <Link
+              href="#about"
+              className="text-sm font-medium transition-colors hover:text-primary"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              About
+            </Link>
+            <Link
+              href="#reviews"
+              className="text-sm font-medium transition-colors hover:text-primary"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Reviews
+            </Link>
+            <Link
+              href="#contact"
+              className="text-sm font-medium transition-colors hover:text-primary"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Contact
+            </Link>
+            <Button className="w-full" onClick={() => setIsMenuOpen(false)}>
+              Book Consultation
+            </Button>
+          </nav>
+        </div>
+      )}
+    </header>
+  )
+}
+
+function HeroSection() {
+  return (
+    <section id="home" className="relative py-20 md:py-28 overflow-hidden bg-rose-50">
+      <div className="container flex flex-col md:flex-row items-center gap-8 md:gap-12">
+        <div className="flex-1 space-y-4 text-center md:text-left">
+          <div className="inline-block rounded-lg bg-rose-100 px-3 py-1 text-sm text-rose-800">
+            Certified Maternal Care Specialist
+          </div>
+          <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
+            Compassionate Care for Your Maternal Journey
+          </h1>
+          <p className="mx-auto md:mx-0 max-w-[700px] text-muted-foreground md:text-xl">
+            Providing expert prenatal and postpartum support to help you and your baby thrive during this special time.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <Button size="lg" className="bg-rose-600 hover:bg-rose-700">
+              Book a Consultation
+            </Button>
+            <Button size="lg" variant="outline">
+              Learn More <ChevronRight className="ml-1 h-4 w-4" />
+            </Button>
+          </div>
+        </div>
+        <div className="flex-1 relative">
+          <Image
+            src="/placeholder.svg?height=500&width=500"
+            width={500}
+            height={500}
+            alt="Maternal care nurse with mother and baby"
+            className="rounded-lg object-cover mx-auto"
+            priority
+          />
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function ServicesSection() {
+  const services = [
+    {
+      title: "Prenatal Classes",
+      description: "Comprehensive education to prepare you for childbirth and early parenthood.",
+      price: "$150 per session",
+      icon: <Calendar className="h-10 w-10 text-rose-500" />,
+      image: "/placeholder.svg?height=200&width=300",
+    },
+    {
+      title: "Overnight Nurse",
+      description: "Professional overnight care allowing parents to rest while baby is monitored by an expert.",
+      price: "$300 per night",
+      icon: <Moon className="h-10 w-10 text-rose-500" />,
+      image: "/placeholder.svg?height=200&width=300",
+    },
+    {
+      title: "Feeding Assessment",
+      description: "Evaluation of feeding patterns and techniques to ensure optimal nutrition for your baby.",
+      price: "$125 per assessment",
+      icon: <Baby className="h-10 w-10 text-rose-500" />,
+      image: "/placeholder.svg?height=200&width=300",
+    },
+    {
+      title: "Breastfeeding Support",
+      description: "Expert guidance and assistance to establish successful breastfeeding.",
+      price: "$100 per session",
+      icon: <Droplet className="h-10 w-10 text-rose-500" />,
+      image: "/placeholder.svg?height=200&width=300",
+    },
+    {
+      title: "Antenatal Hand Expression",
+      description: "Instruction on hand expression techniques to prepare for breastfeeding before birth.",
+      price: "$85 per session",
+      icon: <Heart className="h-10 w-10 text-rose-500" />,
+      image: "/placeholder.svg?height=200&width=300",
+    },
+    {
+      title: "Postpartum Support",
+      description: "Comprehensive care and guidance during the critical postpartum period.",
+      price: "$200 per visit",
+      icon: <Clock className="h-10 w-10 text-rose-500" />,
+      image: "/placeholder.svg?height=200&width=300",
+    },
+  ]
+
+  return (
+    <section id="services" className="py-16 md:py-24">
+      <div className="container">
+        <div className="text-center space-y-4 mb-12">
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Specialized Services</h2>
+          <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
+            Comprehensive maternal care services tailored to your unique needs
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((service, index) => (
+            <Card key={index} className="transition-all hover:shadow-lg overflow-hidden">
+              <div className="relative h-48 w-full">
+                <Image src={service.image || "/placeholder.svg"} alt={service.title} fill className="object-cover" />
+              </div>
+              <CardContent className="p-6">
+                <div className="flex justify-between items-center mb-4">
+                  <div className="p-2 rounded-full bg-rose-50">{service.icon}</div>
+                  <span className="text-lg font-bold text-rose-600">{service.price}</span>
+                </div>
+                <h3 className="text-xl font-bold mb-2">{service.title}</h3>
+                <p className="text-muted-foreground">{service.description}</p>
+                <Button variant="outline" className="w-full mt-4 border-rose-200 hover:bg-rose-50 hover:text-rose-700">
+                  Learn More
+                </Button>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <Button size="lg" className="bg-rose-600 hover:bg-rose-700">
+            Book a Service
+          </Button>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function AboutSection() {
+  return (
+    <section id="about" className="py-16 md:py-24 bg-rose-50">
+      <div className="container">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="relative">
+            <Image
+              src="/placeholder.svg?height=600&width=500"
+              width={500}
+              height={600}
+              alt="Professional maternal care nurse"
+              className="rounded-lg object-cover mx-auto"
+            />
+          </div>
+
+          <div className="space-y-6">
+            <div className="inline-block rounded-lg bg-rose-100 px-3 py-1 text-sm text-rose-800">About Me</div>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
+              Dedicated to Supporting Your Maternal Journey
+            </h2>
+            <p className="text-muted-foreground">
+              With over 10 years of experience as a registered nurse specializing in maternal care, I am passionate
+              about providing personalized support to mothers and families during the transformative journey of
+              pregnancy, childbirth, and postpartum.
+            </p>
+            <p className="text-muted-foreground">
+              My approach combines evidence-based practices with compassionate care, ensuring that each family receives
+              the guidance and support they need during this special time.
+            </p>
+
+            <div className="grid grid-cols-2 gap-4 pt-4">
+              <div className="flex flex-col">
+                <span className="text-3xl font-bold text-rose-600">10+</span>
+                <span className="text-sm text-muted-foreground">Years Experience</span>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-3xl font-bold text-rose-600">500+</span>
+                <span className="text-sm text-muted-foreground">Families Supported</span>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-3xl font-bold text-rose-600">100%</span>
+                <span className="text-sm text-muted-foreground">Satisfaction Rate</span>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-3xl font-bold text-rose-600">24/7</span>
+                <span className="text-sm text-muted-foreground">Support Available</span>
+              </div>
+            </div>
+
+            <Button className="bg-rose-600 hover:bg-rose-700">Learn More About Me</Button>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function ReviewsSection() {
+  const reviews = [
+    {
+      name: "Sarah Johnson",
+      text: "The prenatal classes were incredibly informative and helped me feel prepared for childbirth. The breastfeeding support I received postpartum was invaluable.",
+      rating: 5,
+    },
+    {
+      name: "Emily Davis",
+      text: "Having overnight nurse support was a lifesaver during those first few weeks. I was able to get much-needed rest while knowing my baby was in expert hands.",
+      rating: 5,
+    },
+    {
+      name: "Jessica Williams",
+      text: "The feeding assessment helped identify issues I wasn't aware of, and the guidance provided made a significant difference in my breastfeeding journey.",
+      rating: 5,
+    },
+  ]
+
+  return (
+    <section id="reviews" className="py-16 md:py-24">
+      <div className="container">
+        <div className="text-center space-y-4 mb-12">
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Client Testimonials</h2>
+          <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
+            Hear from families who have benefited from my maternal care services
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {reviews.map((review, index) => (
+            <Card key={index} className="transition-all hover:shadow-lg">
+              <CardContent className="p-6 flex flex-col">
+                <div className="flex mb-4">
+                  {[...Array(review.rating)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <p className="text-muted-foreground mb-4 flex-grow">"{review.text}"</p>
+                <div className="flex items-center gap-4 mt-4">
+                  <div className="h-10 w-10 rounded-full bg-rose-100 flex items-center justify-center">
+                    <span className="text-rose-600 font-semibold">{review.name.charAt(0)}</span>
+                  </div>
+                  <div>
+                    <p className="font-medium">{review.name}</p>
+                    <p className="text-sm text-muted-foreground">Satisfied Client</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <Button variant="outline" size="lg">
+            View All Testimonials
+          </Button>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function Footer() {
+  return (
+    <footer id="contact" className="bg-rose-900 text-white py-12">
+      <div className="container">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="space-y-4">
+            <div className="flex items-center gap-2">
+              <Heart className="h-6 w-6 text-rose-200" />
+              <span className="text-lg font-semibold">Maternal Care Specialist</span>
+            </div>
+            <p className="text-rose-200">
+              Providing expert prenatal and postpartum support to help you and your baby thrive.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Services</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link href="#" className="text-rose-200 hover:text-white">
+                  Prenatal Classes
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="text-rose-200 hover:text-white">
+                  Overnight Nurse
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="text-rose-200 hover:text-white">
+                  Feeding Assessment
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="text-rose-200 hover:text-white">
+                  Breastfeeding Support
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="text-rose-200 hover:text-white">
+                  Antenatal Hand Expression
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="text-rose-200 hover:text-white">
+                  Postpartum Support
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link href="#home" className="text-rose-200 hover:text-white">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="#services" className="text-rose-200 hover:text-white">
+                  Services
+                </Link>
+              </li>
+              <li>
+                <Link href="#about" className="text-rose-200 hover:text-white">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link href="#reviews" className="text-rose-200 hover:text-white">
+                  Reviews
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="text-rose-200 hover:text-white">
+                  FAQ
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="text-rose-200 hover:text-white">
+                  Blog
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Contact</h3>
+            <ul className="space-y-2">
+              <li className="text-rose-200">Phone: (555) 123-4567</li>
+              <li className="text-rose-200">Email: info@maternalcare.com</li>
+              <li className="text-rose-200">Address: 123 Care Lane, Nurture City</li>
+            </ul>
+            <div className="mt-4">
+              <Button className="bg-white text-rose-900 hover:bg-rose-100">Book a Consultation</Button>
+            </div>
+          </div>
+        </div>
+
+        <div className="border-t border-rose-800 mt-8 pt-8 text-center text-rose-200">
+          <p>© {new Date().getFullYear()} Maternal Care Specialist. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  )
+}

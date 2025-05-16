@@ -2,12 +2,13 @@ import { client, urlFor } from "@/lib/client";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import React from "react";
 
 const ServiceDetail = ({ service }) => {
   const { title, image, price, detailedText, slug, pricePerHour } = service;
   return (
-    <div className="pt-10 lg:p-10 sm:p-5  align-center bg-rose-100 dark:bg-gray-800 pt-5">
+    <>
       <Head>
         <title>{title}</title>
         <meta name="description" content={title} />
@@ -18,27 +19,51 @@ const ServiceDetail = ({ service }) => {
         />
         <meta name="robots" content="index, follow" />
       </Head>
-      <div className="lg:w-50 md:w-50 sm:w-100 flex flex-col place-content-center bg-white p-5 sm:p-2 rounded sm: lg:m-5 dark:text-gray-800">
-        <img
-          src={urlFor(image)}
-          alt="img"
-          className="rounded my-3 mx-auto mt-5 detailed-img"
-        />
-        <h1 className="text-center font-bold text-2xl my-2">{title}</h1>
-        <p className="text-center px-5 mb-5 whitespace-normal break-words text-justify">
-          {detailedText}
-        </p>
-        <p className="text-center font-bold mb-5">
-          Price: ${pricePerHour ? `${price}/hr` : price} CAD
-        </p>
-        <Link
-          href="/appointment"
-          className="bg-rose-300 hover:bg-rose-200 text-white text-center font-bold py-2 px-4 rounded-full w-1/2 mx-auto my-5"
-        >
-          Book Appointment
-        </Link>
+      
+      <div className="min-h-screen bg-gradient-to-b from-rose-50 to-white py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
+            <div className="relative h-[400px] w-full">
+              <Image
+                src={urlFor(image).url()}
+                alt={title}
+                fill
+                className="object-cover"
+                priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
+            </div>
+            
+            <div className="p-8">
+              <h1 className="text-3xl font-bold text-gray-900 mb-6">{title}</h1>
+              
+              <div className="flex items-center justify-between mb-8 p-4 bg-rose-50 rounded-lg">
+                <span className="text-lg text-gray-700">Service Price</span>
+                <span className="text-2xl font-semibold text-rose-600">
+                  ${pricePerHour ? `${price}/hr` : price} CAD
+                </span>
+              </div>
+              
+              <div className="prose prose-rose max-w-none mb-8">
+                <p className="text-gray-600 leading-relaxed">
+                  {detailedText}
+                </p>
+              </div>
+              
+              <div className="flex justify-center">
+                <Link href="/appointment" className="w-full sm:w-auto">
+                  <Button 
+                    className="w-full sm:w-auto bg-pink-500 hover:bg-rose-700 text-white px-8 py-3 rounded-full"
+                  >
+                    Book Appointment
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -1,28 +1,31 @@
 import React from "react";
-import Image from "next/image";
-import { StarIcon } from "@heroicons/react/24/solid";
+import { Star } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 
 function Review({ name, stars, review, date }) {
-  const ratings = [];
-
-  for (let i = 0; i < stars; i++) {
-    ratings.push(
-      <StarIcon key={i} width={15} height={15} className="text-yellow-500" />
-    );
-  }
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 mb-8 bg-transparent review-card">
-      <div className="flex flex-col items-center mb-4">
-        <h3 className="text-lg font-semibold dark:text-gray-800">{name}</h3>
-        <div className="flex ">
-          
-          {ratings}
+    <Card className="transition-all hover:shadow-lg">
+      <CardContent className="p-6 flex flex-col">
+        <div className="flex mb-4">
+          {[...Array(stars)].map((_, i) => (
+            <Star 
+              key={i} 
+              className="h-5 w-5 fill-yellow-400 text-yellow-400" 
+            />
+          ))}
         </div>
-
-        <span className="text-gray-600 text-sm">{date}</span>
-      </div>
-      <p className="text-gray-800 text-base text-center text-sm">{review}</p>
-    </div>
+        <p className="text-muted-foreground mb-4 flex-grow">{review}</p>
+        <div className="flex items-center gap-4 mt-4">
+          <div className="h-10 w-10 rounded-full bg-rose-100 flex items-center justify-center">
+            <span className="text-rose-600 font-semibold">{name.charAt(0)}</span>
+          </div>
+          <div>
+            <p className="font-medium">{name}</p>
+            <p className="text-sm text-muted-foreground">{date}</p>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
   );
 }
 
